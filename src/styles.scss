@@ -3,12 +3,4 @@
 @import 'variables';
 @import 'utilities';
 @import 'common';
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: "Gordita", "Helvetica Neue", sans-serif;
-}
+@import 'theme';
