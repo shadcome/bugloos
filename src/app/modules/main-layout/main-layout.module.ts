@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { MainLayoutRoutingModule } from './main-layout-routing.module';
 
 /// Custom components
-import { TopbarComponent, MenuComponent, BreadcrumbComponent, DownloadComponent, FooterComponent, TermsComponent, LayoutComponent } from './components';
+import { TopbarComponent, MenuComponent, BreadcrumbComponent, DownloadComponent, FooterComponent, TermsComponent, LayoutComponent, SliderComponent } from './components';
 
 /// Material Modules
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,14 @@ import { MatIconModule } from '@angular/material/icon';
     DownloadComponent,
     FooterComponent,
     TermsComponent,
-    LayoutComponent
+    LayoutComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,
     MainLayoutRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class MainLayoutModule { }
