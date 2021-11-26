@@ -1,1 +1,25 @@
-<p>menu works!</p>
+<div class="menu d-flex px-6 justify-space-between">
+    <div class="menu-items d-flex items-center justify-space-between">
+        <div class="menu-logo">
+            <a href="#">
+                <img src="assets/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="menu-list">
+            <ul class="d-flex justify-center items-center">
+                <li *ngFor="let item of menu" [ngClass]="item.isActive?'active':''">
+                    <a routerLink="{{item.route}}">
+                        {{item.title}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-sign-up">
+            <!-- <a href="">
+                Sign Up
+            </a> -->
+            <button mat-stroked-button color="primary">Sign Up</button>
+        </div>
+        <div class="d-none"></div>
+    </div>
+</div>

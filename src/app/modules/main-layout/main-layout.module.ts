@@ -4,10 +4,13 @@ import { CommonModule } from '@angular/common';
 import { MainLayoutRoutingModule } from './main-layout-routing.module';
 
 /// Custom components
-import { TopbarComponent, MenuComponent, BreadcrumbComponent, DownloadComponent, FooterComponent, TermsComponent, LayoutComponent } from './components';
+import { TopbarComponent, MenuComponent, BreadcrumbComponent, DownloadComponent, FooterComponent, TermsComponent, LayoutComponent, SliderComponent } from './components';
 
 /// Material Modules
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,19 @@ import { MatIconModule } from '@angular/material/icon';
     DownloadComponent,
     FooterComponent,
     TermsComponent,
-    LayoutComponent
+    LayoutComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,
     MainLayoutRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule
+  ],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}
   ]
 })
 export class MainLayoutModule { }

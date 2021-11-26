@@ -1,0 +1,68 @@
+@import 'variables';
+.menu {
+    .menu-items {
+        border: 1px solid rgba($primary, 0.25);
+        padding: 16px 15px;
+        border-radius: 15px;
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-top: 30px;
+        transition: $transition-base;
+        width: 100%;
+        .menu-list {
+            ul {
+                li {
+                    position: relative;
+                    padding: 16px 25px;
+                    a {
+                        font-size: 18px;
+                        font-weight: 500;
+                        text-transform: capitalize;
+                        color: $dark;
+                        transition: $transition-base;
+                        display: block;
+                        position: relative;
+                        &::before {
+                            position: absolute;
+                            content: '';
+                            background-image: url("../../../../../assets/images/shape/shape-3.png");
+                            width: 70px;
+                            height: 5px;
+                            background-position: center center;
+                            background-size: 100% 100%;
+                            background-repeat: no-repeat;
+                            bottom: -15px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            opacity: 0;
+                            visibility: hidden;
+                        }
+                    }
+                    &:hover {
+                        &>a {
+                            color: $primary;
+                        }
+                    }
+                    &.active {
+                        &>a {
+                            color: $primary;
+                            &::before {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .menu-sign-up {
+            button {
+                height: 60px;
+                line-height: 56px;
+                padding: 0 35px;
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+    }
+}

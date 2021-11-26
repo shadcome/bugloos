@@ -1,0 +1,101 @@
+@import 'variables';
+.download {
+    background-color: $primary;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    float: left;
+    width: 100%;
+    z-index: 2;
+    .app-shape-1 {
+        width: 560px;
+        height: 560px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        left: 70px;
+        bottom: 85px;
+        position: absolute;
+    }
+    .app-shape-2 {
+        width: 560px;
+        height: 560px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        left: 31%;
+        top: 60px;
+        position: absolute;
+    }
+    .app-shape-3 {
+        width: 560px;
+        height: 560px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        right: 15%;
+        bottom: 70%;
+        position: absolute;
+    }
+    .app-shape-4 {
+        width: 560px;
+        height: 560px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        right: -243px;
+        top: -50px;
+        position: absolute;
+    }
+    .download-app-wrapper {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        position: relative;
+        .section-title {
+            max-width: 520px;
+            margin-top: 25px;
+            padding-right: 15px;
+            .sub-title {
+                color: $white;
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 20px;
+            }
+            .main-title {
+                color: $white;
+                font-size: 35px;
+                font-weight: 500;
+                margin-bottom: 0;
+                line-height: 1.4;
+            }
+        }
+        .shape-1 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+        }
+    }
+    .download-app-btn {
+        padding-top: 20px;
+        padding-left: 15px;
+        li {
+            margin-right: 30px;
+            padding-top: 20px;
+            a {
+                width: 180px;
+                height: 63px;
+                background-color: #fff;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                justify-content: center;
+                border-radius: 10px;
+                box-shadow: 0 0 0 5px rgb(255 255 255 / 15%);
+            }
+        }
+        li:last-child {
+            margin-right: 0;
+        }
+    }
+}

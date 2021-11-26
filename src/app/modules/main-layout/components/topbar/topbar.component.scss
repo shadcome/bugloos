@@ -29,41 +29,41 @@
             a {
                 transition: $transition-base;
                 cursor: pointer;
-            }
-            a:hover {
-                color: $primary;
+                &:hover {
+                    color: $primary;
+                }
             }
         }
-    }
-    .topbar-center::before {
-        position: absolute;
-        content: '';
-        width: 41px;
-        height: 14px;
-        background-image: url("./../../../../../assets/images/shape/shape-1.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        left: -110px;
-    }
-    .topbar-center::after {
-        position: absolute;
-        content: '';
-        width: 41px;
-        height: 14px;
-        background-image: url("./../../../../../assets/images/shape/shape-2.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        right: -110px;
+        &::before {
+            position: absolute;
+            content: '';
+            width: 41px;
+            height: 14px;
+            background-image: url("./../../../../../assets/images/shape/shape-1.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            left: -110px;
+        }
+        &::after {
+            position: absolute;
+            content: '';
+            width: 41px;
+            height: 14px;
+            background-image: url("./../../../../../assets/images/shape/shape-2.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            right: -110px;
+        }
     }
     .topbar-right {
         svg {
@@ -74,38 +74,34 @@
                 stroke: $white;
                 transition: $transition-base;
             }
-        }
-        svg:hover {
-            path,
-            line,
-            rect {
-                stroke: $primary;
-            }
-            .facebook-svg {
-                fill: $primary;
+            &:hover {
+                path,
+                line,
+                rect {
+                    stroke: $primary;
+                }
+                .facebook-svg {
+                    fill: $primary;
+                }
             }
         }
         .facebook-svg {
             fill: $white;
             stroke-miterlimit: 10;
-            stroke-width: 0.75px;
         }
         .twitter-svg {
             fill: none;
             stroke-linecap: round;
             stroke-linejoin: round;
-            stroke-width: 2px;
         }
         .skype-svg {
             fill: none;
             stroke-miterlimit: 10;
-            stroke-width: 2px;
         }
         .instagram-svg {
             fill: none;
             stroke-linecap: round;
             stroke-linejoin: round;
-            stroke-width: 2px;
         }
     }
 }
