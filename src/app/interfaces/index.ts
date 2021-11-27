@@ -3,3 +3,4 @@
  */
 
 export * from './menu.interface'
+export * from './user-info.interface'
