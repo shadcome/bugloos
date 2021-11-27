@@ -1,4 +1,4 @@
-/*Utilities classes are included in this file*/
+/* Utilities classes are included in this file */
 
 $spaceAmounts: (1, 2, 3, 4, 5, 6, 7, 8, auto);
 @each $space in $spaceAmounts {
@@ -104,5 +104,26 @@ $textAlignments: ("left", "right", "center", "revert");
 @each $textAlign in $textAlignments {
     .text-#{$textAlign} {
         text-align: #{$textAlign};
+    }
+}
+
+
+/* Grid styles */
+
+.row {
+    --bs-gutter-x: 30px;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2);
+    $grid__cols: 12;
+    @for $i from 1 through $grid__cols {
+        .col-#{$i} {
+            -webkit-box-flex: 0;
+            flex: 0 0 auto;
+            width: (100 / ($grid__cols / $i)) * 1%;
+        }
     }
 }

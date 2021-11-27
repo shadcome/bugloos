@@ -19,161 +19,142 @@
         bottom: 95px;
         z-index: -1;
     }
-    .row {
-        --bs-gutter-x: 30px;
-        --bs-gutter-y: 0;
+    .footer-widget-link {
         display: flex;
         flex-wrap: wrap;
-        margin-top: calc(var(--bs-gutter-y) * -1);
-        margin-right: calc(var(--bs-gutter-x) / -2);
-        margin-left: calc(var(--bs-gutter-x) / -2);
-        .col-3 {
-            -webkit-box-flex: 0;
-            flex: 0 0 auto;
-            width: 25%;
-        }
-        .col-6 {
-            -webkit-box-flex: 0;
-            flex: 0 0 auto;
+        .footer-widget {
             width: 50%;
         }
-        .footer-widget-link {
-            display: flex;
-            flex-wrap: wrap;
-            .footer-widget {
-                width: 50%;
+    }
+    .footer-widget {
+        margin-top: 50px;
+        .footer-widget-title {
+            color: $dark;
+            font-weight: 500;
+            font-size: 22px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+        .widget-address {
+            margin-top: 27px;
+            p {
+                font-size: 15px;
+                font-weight: 400;
+                color: $primary;
+                margin-top: 6px;
             }
         }
-        .footer-widget {
-            margin-top: 50px;
-            .footer-widget-title {
-                color: $dark;
-                font-weight: 500;
-                font-size: 22px;
-                margin-bottom: 0px;
-                margin-top: 0px;
-            }
-            .widget-address {
-                margin-top: 27px;
+        .widget-info {
+            padding-top: 25px;
+            li {
                 p {
                     font-size: 15px;
-                    font-weight: 400;
-                    color: $primary;
-                    margin-top: 6px;
-                }
-            }
-            .widget-info {
-                padding-top: 25px;
-                li {
-                    p {
-                        font-size: 15px;
-                        color: $dark;
-                        display: flex;
-                        -webkit-box-align: start;
-                        align-items: center;
-                        margin-bottom: 0;
-                        svg {
-                            height: 16px;
-                            path {
-                                fill: $primary;
-                            }
+                    color: $dark;
+                    display: flex;
+                    -webkit-box-align: start;
+                    align-items: center;
+                    margin-bottom: 0;
+                    svg {
+                        height: 16px;
+                        path {
+                            fill: $primary;
                         }
-                        a {
-                            margin-top: 3px;
-                            margin-left: 15px;
-                        }
+                    }
+                    a {
+                        margin-top: 3px;
+                        margin-left: 15px;
                     }
                 }
             }
-            .widget-social {
-                display: flex;
-                padding-top: 20px;
-                li {
-                    margin-right: 20px;
-                    a {
-                        font-size: 20px;
-                        color: $dark;
-                        svg {
-                            height: 16px;
-                            cursor: pointer;
+        }
+        .widget-social {
+            display: flex;
+            padding-top: 20px;
+            li {
+                margin-right: 20px;
+                a {
+                    font-size: 20px;
+                    color: $dark;
+                    svg {
+                        height: 16px;
+                        cursor: pointer;
+                        path,
+                        line,
+                        rect {
+                            stroke: $dark;
+                            transition: $transition-base;
+                        }
+                        &:hover {
                             path,
                             line,
                             rect {
-                                stroke: $dark;
-                                transition: $transition-base;
+                                stroke: $primary;
                             }
-                            &:hover {
-                                path,
-                                line,
-                                rect {
-                                    stroke: $primary;
-                                }
-                                .facebook-svg {
-                                    fill: $primary;
-                                }
+                            .facebook-svg {
+                                fill: $primary;
                             }
                         }
-                        .facebook-svg {
-                            fill: $white;
-                            stroke-miterlimit: 10;
-                            stroke-width: 0.75px;
-                        }
-                        .twitter-svg {
-                            fill: none;
-                            stroke-linecap: round;
-                            stroke-linejoin: round;
-                            stroke-width: 2px;
-                        }
-                        .skype-svg {
-                            fill: none;
-                            stroke-miterlimit: 10;
-                            stroke-width: 2px;
-                        }
-                        .instagram-svg {
-                            fill: none;
-                            stroke-linecap: round;
-                            stroke-linejoin: round;
-                            stroke-width: 2px;
-                        }
+                    }
+                    .facebook-svg {
+                        fill: $white;
+                        stroke-miterlimit: 10;
+                        stroke-width: 0.75px;
+                    }
+                    .twitter-svg {
+                        fill: none;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 2px;
+                    }
+                    .skype-svg {
+                        fill: none;
+                        stroke-miterlimit: 10;
+                        stroke-width: 2px;
+                    }
+                    .instagram-svg {
+                        fill: none;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 2px;
                     }
                 }
             }
-            .widget-link {
-                padding-top: 26px;
-                li {
-                    margin-top: 12px;
-                    a {
-                        color: $dark;
-                        transition: all 0.3s ease 0s;
-                        font-size: 15px;
-                        font-weight: 400;
-                    }
-                    a:hover {
-                        color: $primary;
-                    }
-                }
-            }
-            .widget-subscribe {
-                padding-top: 36px;
-                p {
+        }
+        .widget-link {
+            padding-top: 26px;
+            li {
+                margin-top: 12px;
+                a {
                     color: $dark;
+                    transition: all 0.3s ease 0s;
                     font-size: 15px;
+                    font-weight: 400;
                 }
-                .btn {
-                    margin-top: 20px;
-                    height: 55px;
-                    line-height: 55px;
-                    padding: 0 30px;
-                    font-size: 15px;
+                a:hover {
+                    color: $primary;
                 }
-                .form {
-                    min-width: 150px;
-                    max-width: 500px;
-                    width: 100%;
-                }
-                .full-width {
-                    width: 100%;
-                }
+            }
+        }
+        .widget-subscribe {
+            padding-top: 36px;
+            p {
+                color: $dark;
+                font-size: 15px;
+            }
+            .btn {
+                margin-top: 20px;
+                height: 55px;
+                line-height: 55px;
+                padding: 0 30px;
+                font-size: 15px;
+            }
+            .form {
+                min-width: 150px;
+                max-width: 500px;
+                width: 100%;
+            }
+            .full-width {
+                width: 100%;
             }
         }
     }

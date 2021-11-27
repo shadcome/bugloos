@@ -112,6 +112,20 @@ img {
 }
 
 
+/* Section Style */
+
+.section,
+.main-wrapper {
+    float: left;
+    width: 100%;
+}
+
+.section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+
 /* Custom Animation */
 
 .animation-round {
