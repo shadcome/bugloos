@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
-import { IUserInfo } from '../interfaces';
 
-// array in local storage for registered users
-let user = JSON.parse(localStorage.getItem('user') ?? '{}') || [];
-let courses = JSON.parse(localStorage.getItem('courses') ?? '{}') || [];
+// array in local storage for courses
+let courses = JSON.parse(localStorage.getItem('courses') ?? '{"hi":0}') || [];
 let userCourses = JSON.parse(localStorage.getItem('userCourses') ?? '{}') || [];
 
 @Injectable()
@@ -17,17 +15,17 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     // wrap in delayed observable to simulate server api call
     return of(null)
       .pipe(mergeMap(handleRoute))
-      .pipe(materialize()) // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
+      .pipe(materialize())
       .pipe(delay(500))
       .pipe(dematerialize());
 
     function handleRoute() {
       switch (true) {
-        case url.endsWith('/register') && method === 'POST':
+        case url.endsWith('auth/register') && method === 'POST':
           return register();
-        case url.endsWith('/courses') && method === 'GET':
+        case url.endsWith('course/courses') && method === 'GET':
           return getCourses();
-        case url.endsWith('/user-courses') && method === 'GET':
+        case url.endsWith('course/user-courses') && method === 'GET':
           return getUserCourses();
         default:
           // pass through any requests not handled above

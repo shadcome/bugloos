@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { IUserInfo } from 'src/app/interfaces';
+import { AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent  {
+export class RegisterComponent {
 
   termAccepted: boolean = false;
   userInfo: IUserInfo;
   photoFile: File | null;
 
-  constructor(private _snackBar: MatSnackBar) {
+  constructor(
+    private _snackBar: MatSnackBar,
+    private srvAuth: AuthService,
+    private route: Router) {
     /// Fill userInfo to prevent null errors
     this.userInfo = { name: '', email: '', photo: null, gender: 1 }
     this.photoFile = null
@@ -45,7 +50,10 @@ export class RegisterComponent  {
       this._snackBar.open('Please accept the terms.', 'Ok', { duration: 3000 })
       return
     }
-    console.log(this.userInfo)
+
+    this.srvAuth.register(this.userInfo).subscribe(() => {
+      this.route.navigate(['/'])
+    })
 
   }
 

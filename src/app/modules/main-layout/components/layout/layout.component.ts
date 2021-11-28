@@ -8,7 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class LayoutComponent {
 
-  isHome: boolean = true;
+  isAuth: boolean = true;
 
   constructor(private router: Router) {
     /**
@@ -16,10 +16,10 @@ export class LayoutComponent {
      */
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url == '/') {
-          this.isHome = true;
+        if (event.url == '/auth/register') {
+          this.isAuth = true;
         } else {
-          this.isHome = false;
+          this.isAuth = false;
         }
       }
     });

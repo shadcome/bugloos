@@ -4,3 +4,4 @@
 
 export * from './menu.interface'
 export * from './user-info.interface'
+export * from './course.interface'
