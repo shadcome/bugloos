@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from 'src/app/services';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,9 @@ import { FormsModule } from '@angular/forms';
     MatRadioModule,
     MatIconModule,
     FormsModule
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class AuthModule { }

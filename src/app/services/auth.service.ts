@@ -10,14 +10,10 @@ import { IUserInfo } from '../interfaces';
 export class AuthService {
 
   url: string
-  http: HttpClient
 
-  constructor(private bHttp: HttpBackend) {
+  constructor(private http: HttpClient) {
     /// global url for all auth service
     this.url = `${environment.apiUrl}auth/`
-
-    /// We use httpBackend to prevent the header from filling the interceptor.
-    this.http = new HttpClient(bHttp)
   }
 
   register(user: IUserInfo): Observable<any> {

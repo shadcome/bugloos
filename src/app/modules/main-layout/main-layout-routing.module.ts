@@ -7,6 +7,7 @@ const routes: Routes = [
     path: '', component: LayoutComponent, children: [
       { path: 'auth', loadChildren: () => import('../../modules').then(m => m.AuthModule) },
       { path: 'error', loadChildren: () => import('../../modules').then(m => m.ErrorsModule) },
+      { path: '', pathMatch: 'full', redirectTo: 'courses' },
       { path: 'courses', loadChildren: () => import('../../modules').then(m => m.CoursesModule) }
     ]
   }

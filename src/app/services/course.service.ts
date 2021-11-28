@@ -29,7 +29,7 @@ export class CourseService {
   getCourses(): Observable<ICourse[]> {
     /// Cache it once if configs value is false
     if (!this.courses) {
-      this.courses = this.http.get<ICourse[]>(`${this.url}/courses`).pipe(
+      this.courses = this.http.get<ICourse[]>(`${this.url}courses`).pipe(
         map(data => data),
         publishReplay(1), /// this tells Rx to cache the latest emitted
         refCount() /// and this tells Rx to keep the Observable alive as long as there are any Subscribers
