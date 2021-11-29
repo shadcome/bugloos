@@ -5,7 +5,7 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { ICourse } from '../interfaces';
 
 // array in local storage for courses
-const userCourses = JSON.parse(localStorage.getItem('userCourses') ?? '{}') || [];
+let userCourses = JSON.parse(localStorage.getItem('userCourses') ?? '{}') || [];
 const courses: ICourse[] = [{
   "id": 1,
   "title": "Data Science and Machine Learning with Python - Hands On!",
@@ -112,6 +112,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return getCourses();
         case url.endsWith('course/user-courses') && method === 'GET':
           return getUserCourses();
+        case url.endsWith('course/add-user-courses') && method === 'POST':
+          return addUserCourses();
         default:
           // pass through any requests not handled above
           return next.handle(request);
@@ -133,6 +135,25 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     function getUserCourses() {
       if (!isLoggedIn()) return unauthorized();
       return ok(userCourses);
+    }
+
+    function addUserCourses() {
+      if (!isLoggedIn()) return unauthorized();
+      const newCourses = body
+
+      /// Merge new and old courses
+      const tempCourses = []
+      for (let i = 0; i < userCourses.length; i++) {
+        if (tempCourses.indexOf(userCourses[i]) == -1)
+          tempCourses.push(userCourses[i])
+      }
+      for (let i = 0; i < newCourses.length; i++) {
+        if (tempCourses.indexOf(newCourses[i]) == -1)
+          tempCourses.push(newCourses[i])
+      }
+      userCourses = tempCourses
+      localStorage.setItem('userCourses', JSON.stringify(tempCourses));
+      return ok(true);
     }
     // helper functions
 

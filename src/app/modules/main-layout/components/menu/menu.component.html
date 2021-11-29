@@ -8,17 +8,20 @@
         <div class="menu-list">
             <ul class="d-flex justify-center items-center">
                 <li *ngFor="let item of menu" [ngClass]="item.isActive?'active':''">
-                    <a routerLink="{{item.route}}">
+                    <a [routerLink]="item.route">
                         {{item.title}}
                     </a>
                 </li>
             </ul>
         </div>
         <div class="menu-sign-up">
-            <button *ngIf="basketCourses.length > 0" mat-icon-button color="primary" [matBadge]="basketCourses.length" matBadgePosition="before" matBadgeColor="accent">
+            <button *ngIf="basketCourses.length > 0" mat-icon-button color="primary" [matBadge]="basketCourses.length" matBadgePosition="before" matBadgeColor="accent" (click)="addToUserCourses()">
                 <mat-icon>shopping_basket</mat-icon>
             </button>
-            <button class="signup" mat-stroked-button [routerLink]="'auth'">Sign Up</button>
+            <button *ngIf="!userInfo" class="signup" mat-stroked-button [routerLink]="'auth'">Sign Up</button>
+            <button *ngIf="userInfo" mat-icon-button [routerLink]="'auth'">
+                <mat-icon>logout</mat-icon>
+            </button>
         </div>
         <div class="d-none"></div>
     </div>

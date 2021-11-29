@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IUserInfo } from 'src/app/interfaces';
-import { AuthService } from 'src/app/services';
+import { AuthService, ObserveService } from 'src/app/services';
 
 @Component({
   selector: 'app-register',
@@ -17,12 +17,17 @@ export class RegisterComponent {
   photoFile: File | null;
 
   constructor(
-    private _snackBar: MatSnackBar,
+    private srvSnack: MatSnackBar,
+    private srvObserver: ObserveService,
     private srvAuth: AuthService,
     private route: Router) {
     /// Fill userInfo to prevent null errors
     this.userInfo = { name: '', email: '', photo: null, gender: 1 }
     this.photoFile = null
+
+    localStorage.clear()
+    this.srvObserver.userLogged(null)
+    this.srvObserver.clearBasket()
   }
 
   /**
@@ -47,11 +52,12 @@ export class RegisterComponent {
       return
     }
     if (!this.termAccepted) {
-      this._snackBar.open('Please accept the terms.', 'Ok', { duration: 3000 })
+      this.srvSnack.open('Please accept the terms.', 'Ok', { duration: 3000 })
       return
     }
 
     this.srvAuth.register(this.userInfo).subscribe(() => {
+      this.srvObserver.userLogged(this.userInfo)
       this.route.navigate(['/'])
     })
 

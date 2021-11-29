@@ -13,6 +13,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatBadgeModule } from '@angular/material/badge';
 
+/// Services
+import { CourseService } from 'src/app/services';
+
 @NgModule({
   declarations: [
     TopbarComponent,
@@ -32,6 +35,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatInputModule,
     MatFormFieldModule,
     MatBadgeModule
+  ],
+  providers: [
+    CourseService
   ]
 })
 export class MainLayoutModule { }

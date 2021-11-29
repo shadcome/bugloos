@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ICourse } from '../interfaces';
+import { ICourse, IUserInfo } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +21,15 @@ export class ObserveService {
     }
   }
 
+  clearBasket(): void {
+    this.basket.next([])
+  }
+
+  /// When the user logs in, the whole project will be noticed.
+  private userLogin = new BehaviorSubject<IUserInfo | null>(null)
+  userLogin$ = this.userLogin.asObservable()
+
+  userLogged(user: IUserInfo | null): void {
+    this.userLogin.next(user)
+  }
 }

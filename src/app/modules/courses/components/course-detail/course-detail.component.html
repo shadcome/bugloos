@@ -36,7 +36,7 @@
                     <span class="rating-bar" [style]="'width: ' +(course.rate / 5) * 100 + '%;'"></span>
                 </span>
             </div>
-            <button mat-raised-button color="primary" (click)="addToBasket(course)">Enroll</button>
+            <button *ngIf="userIsLoggedIn && !purchased" mat-raised-button color="primary" (click)="addToBasket(course)">Enroll</button>
         </div>
     </div>
 </div>

@@ -10,6 +10,8 @@ import { ObserveService } from 'src/app/services';
 export class CourseDetailComponent {
 
   @Input() course: ICourse;
+  @Input() purchased: boolean = false;
+  userIsLoggedIn: boolean = false
 
   constructor(private srvObserve: ObserveService) {
     this.course = {
@@ -23,6 +25,11 @@ export class CourseDetailComponent {
       subject: '',
       title: 'Nothing'
     }
+
+    /// It changes here every time the user logs in
+    this.srvObserve.userLogin$.subscribe(userInfo => {
+      this.userIsLoggedIn = !!userInfo
+    })
   }
 
   addToBasket(course: ICourse): void {
