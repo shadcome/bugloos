@@ -66,3 +66,18 @@
         }
     }
 }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    animation: sticky 1s;
+    box-shadow: 2px 4px 8px rgba($dark, 0.15);
+    background-color: $white;
+    .menu-items {
+        margin-top: 0;
+        border: 0;
+    }
+}
