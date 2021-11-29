@@ -10,7 +10,8 @@ import { TopbarComponent, MenuComponent, BreadcrumbComponent, DownloadComponent,
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,8 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule
-  ],
-  providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}
+    MatFormFieldModule,
+    MatBadgeModule
   ]
 })
 export class MainLayoutModule { }

@@ -1,16 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ICourse } from 'src/app/interfaces';
+import { ObserveService } from 'src/app/services';
 
 @Component({
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.scss']
 })
-export class CourseDetailComponent implements OnInit {
+export class CourseDetailComponent {
 
   @Input() course: ICourse;
 
-  constructor() {
+  constructor(private srvObserve: ObserveService) {
     this.course = {
       id: 0,
       discount: 0,
@@ -24,7 +25,8 @@ export class CourseDetailComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  addToBasket(course: ICourse): void {
+    this.srvObserve.addCourse(course)
   }
 
 }

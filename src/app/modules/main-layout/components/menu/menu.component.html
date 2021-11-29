@@ -15,7 +15,10 @@
             </ul>
         </div>
         <div class="menu-sign-up">
-            <button mat-stroked-button [routerLink]="'auth'">Sign Up</button>
+            <button *ngIf="basketCourses.length > 0" mat-icon-button color="primary" [matBadge]="basketCourses.length" matBadgePosition="before" matBadgeColor="accent">
+                <mat-icon>shopping_basket</mat-icon>
+            </button>
+            <button class="signup" mat-stroked-button [routerLink]="'auth'">Sign Up</button>
         </div>
         <div class="d-none"></div>
     </div>
