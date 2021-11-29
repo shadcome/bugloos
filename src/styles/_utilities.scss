@@ -127,3 +127,10 @@ $textAlignments: ("left", "right", "center", "revert");
         }
     }
 }
+
+.row>* {
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) / 2);
+    padding-left: calc(var(--bs-gutter-x) / 2);
+    margin-top: var(--bs-gutter-y);
+}

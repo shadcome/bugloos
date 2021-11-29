@@ -45,13 +45,17 @@ export class CourseService {
   getUserCourses(): Observable<ICourse[]> {
     /// Cache it once if configs value is false
     if (!this.userCourses) {
-      this.userCourses = this.http.get<ICourse[]>(`${this.url}/user-courses`).pipe(
+      this.userCourses = this.http.get<ICourse[]>(`${this.url}user-courses`).pipe(
         map(data => data),
         publishReplay(1), /// this tells Rx to cache the latest emitted
         refCount() /// and this tells Rx to keep the Observable alive as long as there are any Subscribers
       );
     }
     return this.userCourses;
+  }
+
+  addUserCourses(courses: ICourse[]): Observable<boolean> {
+    return this.http.post<boolean>(`${this.url}add-user-courses`, courses)
   }
 
   /**

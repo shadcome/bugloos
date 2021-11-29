@@ -16,7 +16,7 @@ export class LayoutComponent {
      */
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url == '/auth/register') {
+        if (event.url == '/auth/register' || event.url == '/auth') {
           this.isAuth = true;
         } else {
           this.isAuth = false;

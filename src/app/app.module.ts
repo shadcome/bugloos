@@ -12,6 +12,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './interceptors';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+/// Services
+import { ObserveService } from './services';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +29,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    fakeBackendProvider
+    fakeBackendProvider,
+    ObserveService
   ],
   bootstrap: [AppComponent]
 })
