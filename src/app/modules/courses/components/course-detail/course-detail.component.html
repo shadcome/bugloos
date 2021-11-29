@@ -1,0 +1,41 @@
+<div class="single-courses">
+    <div class="courses-images">
+        <a href="#"><img src="assets/images/courses/courses-0{{course.id}}.jpg" alt="Courses"></a>
+    </div>
+    <div class="courses-content">
+        <div class="courses-author">
+            <div class="author">
+                <div class="author-thumb">
+                    <a href="#"><img src="assets/images/author/author-0{{course.id}}.jpg" alt="Author"></a>
+                </div>
+                <div class="author-name">
+                    <a class="name" href="#">{{course.masterName}}</a>
+                </div>
+            </div>
+            <div class="tag">
+                <button mat-stroked-button color="primary">{{course.subject}}</button>
+            </div>
+        </div>
+        <h4 class="title">
+            <a href="#">{{course.title}}</a>
+        </h4>
+        <div class="courses-meta">
+            <span> <i class="icofont-clock-time"></i> {{course.duration.hours}} hr {{course.duration.minutes}}
+                mins</span>
+            <span> <i class="icofont-read-book"></i> {{course.lectureCount}} Lectures </span>
+        </div>
+        <div class="courses-price-review">
+            <div class="courses-price">
+                <span class="sale-parice" *ngIf="course.price > 0">${{course.price - course.discount}}</span>
+                <span class="sale-parice" *ngIf="course.price == 0">Free</span>
+                <span class="old-parice" *ngIf="course.discount > 0">${{course.price}}</span>
+            </div>
+            <div class="courses-review">
+                <span class="rating-count">{{course.rate}}</span>
+                <span class="rating-star">
+                    <span class="rating-bar" [style]="'width: ' +(course.rate / 5) * 100 + '%;'"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

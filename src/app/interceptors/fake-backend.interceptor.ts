@@ -2,10 +2,95 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { ICourse } from '../interfaces';
 
 // array in local storage for courses
-let courses = JSON.parse(localStorage.getItem('courses') ?? '{"hi":0}') || [];
-let userCourses = JSON.parse(localStorage.getItem('userCourses') ?? '{}') || [];
+const userCourses = JSON.parse(localStorage.getItem('userCourses') ?? '{}') || [];
+const courses: ICourse[] = [{
+  "id": 1,
+  "title": "Data Science and Machine Learning with Python - Hands On!",
+  "duration": {
+    "hours": 8,
+    "minutes": 18
+  },
+  "rate": 4.5,
+  "lectureCount": 29,
+  "subject": "Science",
+  "masterName": "Jason Williams",
+  "price": 440.00,
+  "discount": 55.00
+},
+{
+  "id": 2,
+  "title": "Create Amazing Color Schemes for Your UX Design Projects",
+  "duration": {
+    "hours": 8,
+    "minutes": 18
+  },
+  "rate": 3.8,
+  "lectureCount": 29,
+  "subject": "Science",
+  "masterName": "Pamela Foster",
+  "price": 420.00,
+  "discount": 0
+},
+{
+  "id": 3,
+  "title": "Culture & Leadership: Strategies for a Successful Business",
+  "duration": {
+    "hours": 8,
+    "minutes": 18
+  },
+  "rate": 4.9,
+  "lectureCount": 29,
+  "subject": "Science",
+  "masterName": "Rose Simmons",
+  "price": 340.00,
+  "discount": 45.00
+},
+{
+  "id": 4,
+  "title": "Finance Series: Learn to Budget and Calculate your Net Worth.",
+  "duration": {
+    "hours": 8,
+    "minutes": 18
+  },
+  "rate": 4.9,
+  "lectureCount": 29,
+  "subject": "Science",
+  "masterName": "Jason Williams",
+  "price": 0,
+  "discount": 0
+},
+{
+  "id": 5,
+  "title": "Build Brand Into Marketing: Tackling the New Marketing Landscape",
+  "duration": {
+    "hours": 8,
+    "minutes": 18
+  },
+  "rate": 4,
+  "lectureCount": 29,
+  "subject": "Science",
+  "masterName": "Jason Williams",
+  "price": 136,
+  "discount": 0
+},
+{
+  "id": 6,
+  "title": "Graphic Design: Illustrating Badges and Icons with Geometric Shapes",
+  "duration": {
+    "hours": 8,
+    "minutes": 18
+  },
+  "rate": 3.9,
+  "lectureCount": 29,
+  "subject": "Science",
+  "masterName": "Jason Williams",
+  "price": 237,
+  "discount": 0
+}
+]
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {

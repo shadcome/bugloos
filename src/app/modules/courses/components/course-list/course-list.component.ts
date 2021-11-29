@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ICourse } from 'src/app/interfaces';
 import { CourseService } from 'src/app/services';
 
 @Component({
@@ -8,12 +9,13 @@ import { CourseService } from 'src/app/services';
 })
 export class CourseListComponent implements OnInit {
 
+  courses: ICourse[] = [];
+
   constructor(private srvCourse: CourseService) { }
 
   ngOnInit(): void {
     this.srvCourse.getCourses().subscribe(res => {
-      console.log(res);
-      
+      this.courses = res;
     })
   }
 
